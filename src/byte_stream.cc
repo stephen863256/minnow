@@ -71,11 +71,6 @@ bool Reader::has_error() const
 
 void Reader::pop( uint64_t len )
 {
-  /*for (uint64_t i=0;i < len && buffer.size()>0 ;++i){
-    buffer.pop();
-    ++numOfPop;
-  } 循环判断中不断调用buffer.size()造成很多没必要的性能开销*/
-  //
   uint64_t toBepoped = min(len,bytes_buffered());
   for (uint64_t i=0;i<toBepoped;++i){
     buffer.pop();
